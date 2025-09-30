@@ -1,20 +1,3 @@
-####################
-# Interpolate ocean reanalysis data grid into COCO grid
-#
-# How to use
-#   INTERP(coco,glorys,lut).main(ifname,vname)
-#       coco    : COCO grid object (made in 'common.py')
-#       glorys  : GLORYS12v1 grid object (made in 'common.py')
-#       lut     : LUT object (made in 'common.py')
-#       ifname  : input file name (uvts_[yyyymmddHH].nc)
-#       vname   : target variable name
-#
-# NOTE:
-#   Core programs are written in Fortran90 for calculating faster
-#   .f90 file must be converted to .so file beforehand
-#
-####################
-
 import os
 import sys
 import numpy as np
