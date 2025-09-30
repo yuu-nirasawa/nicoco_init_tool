@@ -107,3 +107,20 @@
   - Body forcing coefficient is defined as  
     coeff = 1/(relaxation time) [1/s]
 </details>
+
+<details>
+  <summary><h2>interpolation.py</h2></summary>
+
+  ## Interpolate ocean reanalysis data grid into COCO grid
+
+  ### How to use
+  - INTERP(*coco*,*glorys*,*lut*).main(*ifname*,*vname*)
+    - *coco* : object variable of COCO grid (made in 'common.py')
+    - *glorys* : object variable of GLORYS12v1 grid (made in 'common.py')
+    - *lut* : object variable of Look-Up Table (made in 'common.py')
+    - *ifname* : input file name (uvts_[yyyymmddHH].nc)
+    - *vname* : target variable name ('uo', 'vo', 'to', 'so')
+
+  ### NOTE
+  - Core programs are written in Fortran90 ('mod_interp.f90') for calculating faster
+</details>
