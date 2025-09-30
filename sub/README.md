@@ -69,3 +69,41 @@
   - Domain of original data is 180W - 0 - 180E & 80S - 90N  
     This domain is modified to 0 - 360E & 90S - 90N for the usability
 </details>
+
+<details>
+  <summary><h2>mk_data.py</h2></summary>
+
+  ## Make gt3-type data for running COCO
+
+  ### How to use
+  - CONVERT(*topdir*,*ymdh1*,*ymdh2*)  
+    .INIT(*uv_on*=True,*check*=False)
+    .NUDGE(*dt*=72,*check*=False)
+    - *topdir* : directory of 'driver.py'
+    - *ymdh1* : initialized time (yyyymmddHH)
+    - *ymdh2* : initialized time + spin-up time (yyyymmddHH)
+    - *uv_on* : flag for interpolating U & V
+    - *check* : flag for checking interpolation (figures are made)
+    - *dt* : relaxation time [hours]
+
+  ### NOTE
+  - Output variables (total : 24) are ordered as
+    - UO, VO, TO, SO, SHO, UBTO, VBTO, WO, AI, HI, UI, VI,  
+      TI, HS, FT, SWABS, FW, FS, TAUX, TAUY, AMV, AHV, PTOP, TSI
+
+    - eastward/northward velocity, temperature, salinity (UO,VO,TO,SO):
+      - interpolated by ocean reanalysis data
+
+    - sea surface height (SHO):
+      - calculated with ice data in COCO restart file as  
+        z = -(0.9\*HI+0.3\*HS)*AI
+
+    - ice concentration, ice/snow thickness, ice temperature, sea ice surface temperature (AI,HI,HS,TI,TSI):
+      - copied from COCO restart file
+
+    - other variables (UBTO,VBTO,WO,UI,VI,FT,SWABS,FW,FS,TAUX,TAUY,AMV,AHV,PTOP)
+      - filled with zero
+
+  - Body forcing coefficient is defined as  
+    coeff = 1/(relaxation time) [1/s]
+</details>
