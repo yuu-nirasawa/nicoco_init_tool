@@ -1,35 +1,3 @@
-##################################################
-# This is the driver for making COCO-input data initialized with ocean reanalysis data
-# Programs can run on Python version 3.10 or later
-#
-# How to use:
-#   python driver.py [stime] [tspan] (--check)
-#       stime   : initialized time
-#       tspan   : spin-up span [days] (default : 10)
-#       --check : check flag for interpolation
-#
-# Necessary libraries:
-#   os, sys, argparse, subprocess, datetime,
-#   numpy, ctypes, netCDF4, copernicusmarine,
-#   matplotlib
-#
-# Necessary files (other files & directories are created in programs if not exist):
-#   driver.py               : this program
-#   sub/
-#       common.py           : Useful program
-#       download.py         : Download ocean reanalysis data (GLORYS12v1)
-#       interpolation.py    : Call 'mod_interp.f90'
-#       mk_data.py          : Core program
-#       mod_interp.f90      : Fortran program used for interpolation
-#   NICOCO-INIT/long-run/coco_restart_[yyyymmddHH].gt3
-#                           : restart file made in COCO_NOnudge
-#   GRID/
-#       GRID_COCO010.stream : grid file of COCO in 0.10 degrees horizontal resolution
-#       GRID_COCO025.stream : grid file of COCO in 0.25 degrees horizontal resolution
-#       GRID_COCO100.stream : grid file of COCO in 1.00 degrees horizontal resolution
-#
-##################################################
-
 import os
 import sys
 import argparse
