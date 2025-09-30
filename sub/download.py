@@ -1,37 +1,3 @@
-####################
-# Download GLORYS12v1 data (provided by Copernicus Marine Service)
-#   Copernicus Marine Service   : https://marine.copernicus.eu
-#   GLORYS12v1                  : https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030
-#
-# How to use:
-#   GLORYS12v1(topdir,now).main()
-#       topdir  : top-level directory for storing downloaded data
-#       now     : target time (yyyymmddHH)
-#
-# NOTE:
-#   Data is available since 1993-01-01
-#   If target time is recent, the data will be interim-data
-#
-#   You need to register the account (https://data.marine.copernicus.eu/register)
-#   You can make '~/.dodsrc' & '~/.netrc' to avoid entering the account name and password
-#       '~/.dodsrc':
-#           HTTP.NETRC=/home/[username in server]/.netrc
-#           HTTP.COOKIEJAR=/home/[username in server]/.cookies
-#
-#       '~/.netrc'
-#           machine my.cmems-du.eu
-#           login [registered username]
-#           password [registerd password]
-#
-#           machine myint.cmems-du.eu
-#           login [registered username]
-#           password [registered password]
-#
-#   Domain of original data is 180W - 0 - 180E & 80S - 90N
-#   This domain is modified to 0 - 360E & 90S - 90N for the usability
-#
-####################
-
 import os
 import sys
 import numpy as np
