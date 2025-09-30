@@ -11,7 +11,7 @@ python driver.py [stime] [tspan] (--check)
 - *tspan* : spin-up span [days] (default : 10)
 - *--check* : check flag for interpolation
 
-### Necessary libraries
+### Necessary Python libraries
 - os, sys, argparse, subprocess, datetime, numpy, ctypes, netCDF4, copernicusmarine, matplotlib
 
 ### Necessary files (other files & directories are automatically created in programs if not exist)
