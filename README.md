@@ -5,7 +5,7 @@
 
 ### How to use
 ```shell
-python driver.py [stime] [tspan] (--check)
+python driver.py [stime] (-T [tspan]) (--check)
 ```
 - *stime* : initialized time
 - *tspan* : spin-up span [days] (default : 10)
