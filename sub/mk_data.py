@@ -1,7 +1,6 @@
 import os
 import sys
 import numpy as np
-import subprocess as sub
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from common         import *
@@ -62,9 +61,7 @@ class CONVERT :
         fin.close()
 
         #--- output file setting
-        odir    = f'{self.topdir}/NICOCO-INIT/init/'
-        sub.run(['mkdir','-p',odir])
-        ofname  = f'{odir}coco_init_{self.ymdh1}.gt3'
+        ofname  = f'{self.topdir}/NICOCO-INIT/init/coco_init_{self.ymdh1}.gt3'
         fout    = open(ofname,'wb')
 
         #--- U, V, T, S (interpolated with ocean reanalysis data)
@@ -123,7 +120,6 @@ class CONVERT :
         yyyymmdd    = self.ymdh2[:8]
         hh          = self.ymdh2[8:]
         odir        = f'{self.topdir}/NICOCO-INIT/nudge/'
-        sub.run(['mkdir','-p',odir])
 
         for ii, vname in enumerate(['to','so']) :
             #--- modify header
