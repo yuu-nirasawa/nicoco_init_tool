@@ -45,7 +45,6 @@ class CONVERT :
             #--- header
             top = np.fromfile(fin,dtype='>i4',count=1)[0]
             tmp = np.fromfile(fin,dtype='>i1',count=np.int32(top))
-
             bot = np.fromfile(fin,dtype='>i4',count=1)[0]
             assert top==bot
 
