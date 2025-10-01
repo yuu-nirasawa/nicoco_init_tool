@@ -190,7 +190,7 @@ class CHECK :
         self.grid2  = grid2
         self.var2   = var[np.argmin(abs(grid2.lev-tlev))]
 
-    def plot(self,tax,pvar,grid,title,dskip=10):
+    def plot(self,tax,pvar,grid,title,dskip):
         pvar        = np.ma.masked_array(pvar,mask=(pvar==-32767))
         vmin, vmax  = np.min(pvar), np.max(pvar)
 
@@ -206,11 +206,11 @@ class CHECK :
         cs  = tax.scatter(lon,lat,c=var,**self.pdict)
         plt.colorbar(cs,ax=tax,location='right')
 
-    def main(self,figname):
+    def main(self,figname,dskip=10):
         fig, axs    = plt.subplots(nrows=2,figsize=(12,16),dpi=100)
         fig.suptitle(f'scatter plot (interval={dskip})',fontsize=32)
-        self.plot(axs[0],self.var1,self.grid1,'original data; land is masked')
-        self.plot(axs[1],self.var2,self.grid2,'interpolated data; land is not masked')
+        self.plot(axs[0],self.var1,self.grid1,'original data; land is masked',dskip)
+        self.plot(axs[1],self.var2,self.grid2,'interpolated data; land is not masked',dskip)
         plt.savefig(figname,bbox_inches='tight',pad_inches=0.1)
         print(f'finished making {figname}')
 
