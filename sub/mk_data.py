@@ -9,8 +9,8 @@ from interpolation  import *
 class CONVERT :
     def __init__(self,topdir,ymdh1,ymdh2):
         #--- get basic information
-        coco    = COCO(topdir+'/GRID/')
-        glorys  = GLORYS12v1(topdir+'/GLORYS12v1/',ymdh1)
+        coco    = COCO(topdir+'/data/GRID/')
+        glorys  = GLORYS12v1(topdir+'/data/GLORYS12v1/',ymdh1)
         lut     = LUT(coco,glorys).lut
         header  = HEADER(topdir+'/data/long-run/',ymdh1)
 
@@ -65,7 +65,7 @@ class CONVERT :
         fout    = open(ofname,'wb')
 
         #--- U, V, T, S (interpolated with ocean reanalysis data)
-        ifname  = f'{self.topdir}/GLORYS12v1/{self.ymdh1[:4]}/uvts_{self.ymdh1}.nc'
+        ifname  = f'{self.topdir}/data/GLORYS12v1/{self.ymdh1[:4]}/uvts_{self.ymdh1}.nc'
         for ii, vname in enumerate(['uo','vo','to','so']):
             # U & V are interpolated
             if uv_on :
@@ -129,7 +129,7 @@ class CONVERT :
             self.header.value[ii+2][49] = f'00{self.ymdh2}0000'
 
             #--- nudging file (interpolated with ocean reanalysis data)
-            ifname  = f'{self.topdir}/GLORYS12v1/{yyyy}/uvts_{self.ymdh2}.nc'
+            ifname  = f'{self.topdir}/data/GLORYS12v1/{yyyy}/uvts_{self.ymdh2}.nc'
             res     = INTERP(self.coco,self.glorys,self.lut).main(ifname,vname)
 
             ofname  = f'{odir}{vname}_nudge_{self.ymdh2}.gt3'
