@@ -10,7 +10,7 @@ from sub    import download, mk_data
 if __name__=='__main__' :
     parser  = argparse.ArgumentParser(description='*** make data for NICOCO-initialization ***')
     parser.add_argument('stime',type=str,help='initialized time (yyyymmddHH)')
-    parser.add_argument('tspan',type=int,default=10,help='spin-up span [days] (default : 10)')
+    parser.add_argument('--tspan','-T',type=int,default=10,help='spin-up span [days] (default : 10)')
     parser.add_argument('--check',action='store_true',help='check flag for interpolation')
     args    = parser.parse_args()
     symdh   = args.stime
