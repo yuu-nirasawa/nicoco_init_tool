@@ -22,11 +22,15 @@ python driver.py [stime] [tspan] (--check)
   - mk_data.py : Core program
   - interpolation.py : Call 'mod_interp.f90'
   - mod_interp.f90 : Fortran program used for interpolation
-- NICOCO-INIT/long-run/coco_restart_[yyyymmddHH].gt3 : restart file made in COCO_NOnudge
-- GRID/
-  - GRID_COCO010.stream : grid file of COCO in 0.10 degrees horizontal resolution
-  - GRID_COCO025.stream : grid file of COCO in 0.25 degrees horizontal resolution
-  - GRID_COCO100.stream : grid file of COCO in 1.00 degrees horizontal resolution
+- data/
+  - long-run/coco_restart_[yyyymmddHH].gt3 : restart file made in COCO_NOnudge
+  - init/ : output directory of initialized data
+  - nudge/ : output directory of nudging data
+  - GLORYS12v1/[yyyy]/uvts_[yyyymmddHH].nc : ocean reanalysis data
+  - GRID/
+    - GRID_COCO010.stream : grid file of COCO in 0.10 degrees horizontal resolution
+    - GRID_COCO025.stream : grid file of COCO in 0.25 degrees horizontal resolution
+    - GRID_COCO100.stream : grid file of COCO in 1.00 degrees horizontal resolution
 
 ### Other information
 - Programs can run on Python version 3.10 or later
