@@ -12,7 +12,7 @@ class CONVERT :
         coco    = COCO(topdir+'/GRID/')
         glorys  = GLORYS12v1(topdir+'/GLORYS12v1/',ymdh1)
         lut     = LUT(coco,glorys).lut
-        header  = HEADER(topdir+'/NICOCO-INIT/long-run/',ymdh1)
+        header  = HEADER(topdir+'/data/long-run/',ymdh1)
 
         #--- shared variables
         self.topdir = topdir
@@ -38,7 +38,7 @@ class CONVERT :
     def INIT(self,uv_on=True,check=False):
         #--- read ice data (used for calculating SHO and copying ice variables)
         var_ice = {}
-        ifname  = f'{self.topdir}/NICOCO-INIT/long-run/coco_restart_{self.ymdh1}.gt3'
+        ifname  = f'{self.topdir}/data/long-run/coco_restart_{self.ymdh1}.gt3'
         fin     = open(ifname,'rb')
         for ii in range(24):
             #--- header
@@ -61,7 +61,7 @@ class CONVERT :
         fin.close()
 
         #--- output file setting
-        ofname  = f'{self.topdir}/NICOCO-INIT/init/coco_init_{self.ymdh1}.gt3'
+        ofname  = f'{self.topdir}/data/init/coco_init_{self.ymdh1}.gt3'
         fout    = open(ofname,'wb')
 
         #--- U, V, T, S (interpolated with ocean reanalysis data)
@@ -119,7 +119,7 @@ class CONVERT :
         yyyy        = self.ymdh2[:4]
         yyyymmdd    = self.ymdh2[:8]
         hh          = self.ymdh2[8:]
-        odir        = f'{self.topdir}/NICOCO-INIT/nudge/'
+        odir        = f'{self.topdir}/data/nudge/'
 
         for ii, vname in enumerate(['to','so']) :
             #--- modify header
