@@ -35,8 +35,8 @@ if __name__=='__main__' :
     # download.GLORYS12v1(topdir,now).main()
     #   topdir  : top-level directory for storing downloaded data
     #   now     : target time (yyyymmddHH)
-    download.GLORYS12v1(ndir+'/GLORYS12v1/',time1).main()
-    download.GLORYS12v1(ndir+'/GLORYS12v1/',time2).main()
+    download.GLORYS12v1(ndir+'/data/GLORYS12v1/',time1).main()
+    download.GLORYS12v1(ndir+'/data/GLORYS12v1/',time2).main()
 
     #--- main program
     # mk_data.CONVERT(topdir,ymdh1,ymdh2)
