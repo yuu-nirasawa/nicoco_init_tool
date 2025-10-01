@@ -101,5 +101,12 @@ class INTERP :
         #--- vertical interpolation
         v_interped  = self.v_interp(h_interped)
 
+        #--- minimum value to avoid unrealistic values
+        match varname :
+            case 'to' :
+                v_interped  = np.where(v_interped<-1.8,-1.8,v_interped)
+            case 'so' :
+                v_interped  = np.where(v_interped<10.0,10.0,v_interped)
+        
         return v_interped
 
