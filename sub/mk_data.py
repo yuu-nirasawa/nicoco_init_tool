@@ -9,10 +9,10 @@ from interpolation  import *
 class CONVERT :
     def __init__(self,topdir,ymdh1,ymdh2):
         #--- get basic information
-        coco    = COCO(topdir+'/data/GRID/')
+        header  = HEADER(topdir+'/data/long-run/',ymdh1)
+        coco    = COCO(topdir+'/data/GRID/',header)
         glorys  = GLORYS12v1(topdir+'/data/GLORYS12v1/',ymdh1)
         lut     = LUT(coco,glorys).lut
-        header  = HEADER(topdir+'/data/long-run/',ymdh1)
 
         #--- shared variables
         self.topdir = topdir

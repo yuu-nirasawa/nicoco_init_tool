@@ -5,23 +5,14 @@ import netCDF4 as nc
 import matplotlib.pyplot as plt
 
 class COCO :
-    def __init__(self,ddir,coco_type='COCO025'):
-        #--- minimum values of temperature and salinity (fixed)
-        self.minT   = -1.8
-        self.minS   = 10.0
-
+    def __init__(self,ddir,header):
         #--- grid numbers of each resolution
-        match coco_type :
-            case 'COCO100' :
-                nx, ny, nz  = 360, 256, 63
-            case 'COCO025' :
-                nx, ny, nz  = 1440, 1280, 63
-            case 'COCO010' :
-                nx, ny, nz  = 3600, 3000, 62
-            case _ :
-                exit(f'STOP: \'coco_type\'={coco_type} is not available!')
+        resol   = (header.value[0][1].split()[0]).replace('COCO','')
+        nx      = int(header.value[0][30])
+        ny      = int(header.value[0][33])
+        nz      = int(header.value[0][36])
 
-        gname   = f'{ddir}GRID_{coco_type}.stream'
+        gname   = f'{ddir}grid_{resol}_z{nz}.stream'
         self.set_grids(gname,nx,ny,nz)
 
     def set_grids(self,gname,nx,ny,nz):
