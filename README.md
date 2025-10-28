@@ -15,7 +15,8 @@ python driver.py [stime] (-T [tspan]) (--check)
 - os, sys, argparse, subprocess, datetime, numpy, ctypes, netCDF4, copernicusmarine, matplotlib
 
 ### Necessary files (other files & directories are automatically created in programs if not exist)
-- driver.py : this program
+- Makefile : setting file (edit for your utility)
+- driver.py : top program
 - sub/
   - common.py : Useful program
   - download.py : Download ocean reanalysis data (GLORYS12v1)
