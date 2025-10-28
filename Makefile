@@ -1,9 +1,12 @@
+grid_dir="../../../GRID/nicoco_init_tool/"
+test_dir="../../../test_data/nicoco_init_tool/"
+
 setting:
-	ln -nsf ../../../GRID/grid_010_z62.stream ./data/GRID/
-	ln -nsf ../../../GRID/grid_025_z63.stream ./data/GRID/
-	ln -nsf ../../../GRID/grid_100_z63.stream ./data/GRID/
-	ln -nsf ../../../test_data/2020 ./data/GLORYS12v1/
-	ln -nsf ../../../test_data/coco_restart_2020070100.gt3 ./data/long-run/
+	ln -nsf ${grid_dir}grid_010_z62.stream ./data/GRID/
+	ln -nsf ${grid_dir}grid_025_z63.stream ./data/GRID/
+	ln -nsf ${grid_dir}grid_100_z63.stream ./data/GRID/
+	ln -nsf ${test_dir}2020 ./data/GLORYS12v1/
+	ln -nsf ${test_dir}coco_restart_2020070100.gt3 ./data/long-run/
 
 clean:
 	unlink data/GLORYS12v1/2020
